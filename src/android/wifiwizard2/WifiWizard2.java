@@ -90,6 +90,11 @@ public class WifiWizard2 extends CordovaPlugin {
   private static final int SCAN_CODE = 1; // Permissions request code for scan()
   private static final int LOCATION_REQUEST_CODE = 2; // Permissions request code
   private static final String ACCESS_FINE_LOCATION = android.Manifest.permission.ACCESS_FINE_LOCATION;
+  
+  private static final String ACCESS_WIFI_STATE = android.Manifest.permission.ACCESS_WIFI_STATE;
+  private static final String CHANGE_WIFI_STATE = android.Manifest.permission.CHANGE_WIFI_STATE;
+  private static final String ACCESS_COARSE_LOCATION = android.Manifest.permission.ACCESS_COARSE_LOCATION;
+
 
   private static int LAST_NET_ID = -1;
 
@@ -1441,6 +1446,9 @@ public class WifiWizard2 extends CordovaPlugin {
    */
   protected void requestLocationPermission(int requestCode) {
     cordova.requestPermission(this, requestCode, ACCESS_FINE_LOCATION);
+    cordova.requestPermission(this, requestCode, ACCESS_WIFI_STATE);
+    cordova.requestPermission(this, requestCode, CHANGE_WIFI_STATE);
+    cordova.requestPermission(this, requestCode, ACCESS_COARSE_LOCATION);
   }
 
   /**
